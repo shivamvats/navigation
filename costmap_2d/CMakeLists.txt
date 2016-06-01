@@ -13,6 +13,7 @@ find_package(catkin REQUIRED
             message_generation
             voxel_grid
             pcl_ros
+	    rostest
         )
 
 find_package(PCL REQUIRED)
@@ -55,6 +56,7 @@ catkin_package(
         message_generation
         pcl_ros
         voxel_grid
+        rostest
     DEPENDS
         PCL
         Eigen
