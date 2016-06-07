@@ -44,7 +44,7 @@ using namespace std;
 using namespace tf;
 
 namespace costmap_2d {
-  ObservationBuffer::ObservationBuffer(string topic_name, double observation_keep_time, double expected_update_rate, 
+  ObservationBuffer::ObservationBuffer(string topic_name, double observation_keep_time, double expected_update_rate,
       double min_obstacle_height, double max_obstacle_height, double obstacle_range, double raytrace_range,
       TransformListener& tf, string global_frame, string sensor_frame, double tf_tolerance) : tf_(tf),
   observation_keep_time_(observation_keep_time), expected_update_rate_(expected_update_rate), last_updated_(ros::Time::now()),
@@ -83,7 +83,7 @@ namespace costmap_2d {
 
       }
       catch(TransformException& ex){
-        ROS_ERROR("TF Error attempting to transform an observation from %s to %s: %s", global_frame_.c_str(), 
+        ROS_ERROR("TF Error attempting to transform an observation from %s to %s: %s", global_frame_.c_str(),
             new_global_frame.c_str(), ex.what());
         return false;
       }
@@ -139,7 +139,7 @@ namespace costmap_2d {
       unsigned int cloud_size = global_frame_cloud.points.size();
       observation_cloud.points.resize(cloud_size);
       unsigned int point_count = 0;
-      
+
       //copy over the points that are within our height bounds
       for(unsigned int i = 0; i < cloud_size; ++i){
         if(global_frame_cloud.points[i].z <= max_obstacle_height_ && global_frame_cloud.points[i].z >= min_obstacle_height_){
@@ -155,7 +155,7 @@ namespace costmap_2d {
     catch(TransformException& ex){
       //if an exception occurs, we need to remove the empty observation from the list
       observation_list_.pop_front();
-      ROS_ERROR("TF Exception that should never happen for sensor frame: %s, cloud frame: %s, %s", sensor_frame_.c_str(), 
+      ROS_ERROR("TF Exception that should never happen for sensor frame: %s, cloud frame: %s, %s", sensor_frame_.c_str(),
           cloud.header.frame_id.c_str(), ex.what());
       return;
     }
