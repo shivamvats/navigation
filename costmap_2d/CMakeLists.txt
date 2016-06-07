@@ -13,6 +13,7 @@ find_package(catkin REQUIRED
             message_generation
             voxel_grid
             pcl_ros
+            pcl_conversions
 	    rostest
         cmake_modules
         )
@@ -25,6 +26,7 @@ include_directories(
     SYSTEM
         ${EIGEN_INCLUDE_DIRS}
         ${PCL_INCLUDE_DIRS}
+        ${pcl_conversions_INCLUDE_DIRS}
 )
 
 add_definitions(${EIGEN_DEFINITIONS})
@@ -58,6 +60,7 @@ catkin_package(
         pcl_ros
         voxel_grid
         rostest
+        pcl_conversions
     DEPENDS
         PCL
         Eigen
