@@ -12,6 +12,7 @@ find_package(catkin REQUIRED
             rostest
             costmap_2d
             pluginlib
+            cmake_modules
         )
 
 find_package(Boost REQUIRED
