@@ -8,7 +8,7 @@ find_package(catkin REQUIRED
             tf
             message_generation
             dynamic_reconfigure
-            nav_core
+            #nav_core
             rostest
             costmap_2d
             pluginlib
@@ -22,13 +22,6 @@ find_package(Boost REQUIRED
 
 find_package(Eigen REQUIRED)
 find_package(PCL REQUIRED)
-include_directories(
-    include
-    ${catkin_INCLUDE_DIRS}
-    SYSTEM
-        ${EIGEN_INCLUDE_DIRS}
-        ${PCL_INCLUDE_DIRS}
-)
 add_definitions(${EIGEN_DEFINITIONS})
 
 catkin_python_setup()
@@ -63,9 +56,16 @@ catkin_package(
         tf
         pluginlib
         costmap_2d
-        nav_core
+        #nav_core
 )
 
+include_directories(
+    include
+    ${catkin_INCLUDE_DIRS}
+    SYSTEM
+        ${EIGEN_INCLUDE_DIRS}
+        ${PCL_INCLUDE_DIRS}
+)
 #uncomment for profiling
 #set(ROS_COMPILE_FLAGS "-g -pg" ${ROS_COMPILE_FLAGS})
 #set(ROS_LINK_FLAGS "-g -pg" ${ROS_LINK_FLAGS})
@@ -91,7 +91,8 @@ add_library(base_local_planner
 	src/simple_trajectory_generator.cpp
 	src/trajectory.cpp
 	src/voxel_grid_model.cpp)
-add_dependencies(base_local_planner base_local_planner_gencfg base_local_planner_gencpp)
+#add_dependencies(base_local_planner base_local_planner_gencfg base_local_planner_gencpp)
+add_dependencies(base_local_planner ${${PROJECT_NAME}_EXPORTED_TARGETS})
 target_link_libraries(base_local_planner
     ${catkin_LIBRARIES}
     ${PCL_LIBRARIES}

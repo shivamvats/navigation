@@ -26,7 +26,6 @@
     <build_depend>angles</build_depend>
     <build_depend>visualization_msgs</build_depend>
     <build_depend>geometry_msgs</build_depend>
-    <build_depend>nav_core</build_depend>
     <build_depend>pcl_ros</build_depend>
     <build_depend>eigen</build_depend>
     <build_depend>dynamic_reconfigure</build_depend>
@@ -46,13 +45,9 @@
     <run_depend>angles</run_depend>
     <run_depend>visualization_msgs</run_depend>
     <run_depend>geometry_msgs</run_depend>
-    <run_depend>nav_core</run_depend>
     <run_depend>pcl_ros</run_depend>
     <run_depend>eigen</run_depend>
     <run_depend>dynamic_reconfigure</run_depend>
     <run_depend>message_generation</run_depend>
 
-    <export>
-        <nav_core plugin="${prefix}/blp_plugin.xml" />
-    </export>
 </package>
