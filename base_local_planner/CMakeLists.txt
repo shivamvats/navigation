@@ -8,7 +8,7 @@ find_package(catkin REQUIRED
             tf
             message_generation
             dynamic_reconfigure
-            #nav_core
+            nav_core
             rostest
             costmap_2d
             pluginlib
@@ -56,7 +56,7 @@ catkin_package(
         tf
         pluginlib
         costmap_2d
-        #nav_core
+        nav_core
 )
 
 include_directories(
